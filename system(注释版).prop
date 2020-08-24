@@ -1,0 +1,181 @@
+# This file will be read by resetprop
+# Example: Change dpi
+# ro.sf.lcd_density=320
+
+#“超级触控”模块代码注释版，随意转载，仅供参考
+
+#ro.min_pointer_dur，本参数定义了两次触摸之间的最短时间间隔，单60位是毫秒。默认值为25，
+#推荐值是10。通过调整此参数可以提高系统触控的灵敏度或稳定度。
+#当此值越大时，触控越稳定。此值越小，触控越灵敏
+ro.min_pointer_dur=0
+
+#本参数定义了Android系统的窗体事件管理器在单位时间内可以处理的最大事件数量。
+#可填写的值范围为“大于0的正整数”，官方默认为60。
+windowsmgr.max_events_per_sec=10000
+
+#本参数定义了手机屏幕上的两个触摸点之间的最短距离,单位为像素
+mot.proximity.distance=1
+
+#来自AOSP的定义：
+#Pressure字段描述了以介于 0.0（无接触）和 1.0（全力）之间的标准化值形式施加到触摸设备的近似物理压力。
+#定义：touch.pressure.scale = <非负浮点数>
+touch.pressure.scale=0
+
+#来自Android Developers
+#dumpsys是一种在 Android 设备上运行的工具，可提供有关系统服务的信息。
+#在Input Reader 状态里状态转储的结尾部分会显示一些关于全局配置参数的信息，在触摸屏幕信息里可以看到
+#ps：未找到SwipeTransitionAngleCosine属于build.prop的证据
+SwipeTransitionAngleCosine=5.4
+
+#HW层相关，GPU硬件加速，定义了系统是否启用GPU来渲染程序的UI
+debug.sf.hw=1
+
+#来自4pda.ru
+#Property启用触摸优化，Android P
+persist.vendor.qti.inputopts.enable=true
+persist.vendor.qti.inputopts.movetouchslop=0.001
+
+#同下文“TapSlop”等
+XPrecision=-500
+YPrecision=-500
+MovementSpeedRatio=2
+
+#无准确定义，待补充
+ro.max.fling_velocity=50000
+ro.min.fling_velocity=35000
+
+#本参数定义了系统是否针对性能做较调。可填写的值为0或1(Android 2.3)
+debug.performance.tuning=1
+
+#本参数定义了系统是否对视频启用硬件加速功能。这里的视频指代屏幕上显示的东西(Android 2.3)
+video.accelerate.hw=1
+
+#滑动误差
+view.scroll_friction=0
+
+#来自XDA
+#禁用滚动缓存
+#1 =始终缓存
+#2 =某些时候
+#3 =某些时候
+#4 =总是关闭缓存
+persist.sys.scrollingcache=4
+
+#来自AOSP
+#包含于dumpsys 输入诊断的Input Reader
+#InputReader 负责对来自内核的输入事件进行解码。其状态转储显示各输入设备的配置信息以及最近发生的状态变化相关信息，
+#如按下按键或触摸触摸屏等操作。
+#大白话：触摸屏的状态信息（全局配置参数的信息）
+MultitouchSettleInterval=0
+MultitouchMinDistance=20
+TapInterval=0
+TapSlop=20
+TapDragInterval=0
+ZoomSpeedRatio=10
+QuietInterval=0
+PointerVelocityControlParameterscale=0
+lowThreshold=0
+highThreshold=0
+acceleration=1
+
+#这个写了两遍，同开头注释
+touch.pressure.scale=0
+
+#同“TapSlop”等
+TiltXScale=-1000
+TiltYScale=-1000
+
+#来自AOSP
+#触摸设备配置
+#以下表达式表示触摸设备驱动程序报告为EV_ABS事件的原始值
+
+#ABS_TILT_X轴的值；如果不可用，则为0。
+#ABS_TILT_X：（可选）报告工具从触摸设备表面沿X轴的倾斜度。
+raw.tiltX=0
+
+#ABS_TILT_Y轴的值；如果不可用，则为0
+#ABS_TILT_Y：（可选）报告工具沿Y轴从触摸设备表面的倾斜度。
+raw.tiltY=0
+
+#ABS_DISTANCE或ABS_MT_DISTANCE轴的值；如果不可用，则为0。
+#ABS_MT_DISTANCE：（可选）报告工具距触摸设备表面的距离。
+raw.distance=0
+
+#ABS_PRESSURE或ABS_MT_PRESSURE轴的值；如果不可用，则为0
+#ABS_MT_PRESSURE：（可选）报告施加在工具尖端的物理压力或触摸触点的信号强度。
+raw.pressure=0
+
+#ABS_MT_ORIENTATION轴的值；如果不可用，则为0。
+#ABS_MT_ORIENTATION：（可选）报告工具的方向。
+raw.orientation=0
+
+#同“TapSlop”等
+SwipeMaxWidthRatio=10
+HaveTilt=true
+
+#触摸屏灵敏度，数值越大越灵敏
+view.touch_slop=1000
+
+#来自AOSP的定义：
+#定义：touch.orientationAware = 0或1
+#指定触摸设备是否应对显示屏的方向更改做出响应。
+OrientationAware=true
+
+#同“TapSlop”等
+SurfaceOrientation=0
+TOUCH_MAJOR=800
+TOUCH_MINOR=800
+TOOL_MAJOR=800
+TOOL_MINOR=800
+
+#来自AOSP
+#Orientation 和 Tilt 字段的计算方法取决于指定的校准参数和可用输入
+#Tilt 字段通过测量角度描述了工具的倾斜度。
+tiltXAngle=180
+tiltYAngle=180
+
+#同“TapSlop”等
+DragMinSwitchSpeed=5000
+
+#来自AOSP
+#如果设置了 touch.deviceType 属性，则将按照指示设置设备类型
+touch.deviceType=touchScreen
+#指定触摸设备是否应对显示屏的方向更改做出响应。
+#如果值为 1，则只要显示屏的方向更改了，触摸设备报告的触摸位置就会旋转。
+#如果值为 0，则触摸设备报告的触摸位置将不受显示屏方向更改的影响。
+touch.orientationAware=1
+#指定触摸驱动程序报告触摸尺寸和工具尺寸时所用的测量类型
+touch.size.calibration=diameter
+#定义：touch.size.scale = <非负浮点数>
+#指定校准中使用的恒定比例因子。
+#默认值为 1.0。
+touch.size.scale=1
+#定义：touch.size.bias = <非负浮点数>
+#指定校准中使用的恒定偏差值。
+#默认值为 0.0。
+touch.size.bias=0
+#指定尺寸是报告为所有有效接触区域的尺寸总和，还是针对每个接触区域单独报告尺寸。
+#如果值为 1，则报告的尺寸需除以接触数量，然后才能使用。
+#如果值为 0，则报告的尺寸将按原样使用。
+touch.size.isSummed=1
+#指定触摸驱动程序报告压力所用的测量类型。
+#如果值为 none，压力未知，因此触摸时设置为 1.0，悬停时为 0.0。
+#如果值为 physical，则认为压力轴测量的是施加到触摸板的压力的实际物理强度。
+#如果值为 amplitude，则认为压力轴测量的是信号幅度（与接触的尺寸和施加的压力有关）。
+#如果值为 default，在压力轴可用的情况下，系统将使用 physical 校准，否则使用 none。
+touch.pressure.calibration=physical
+#指定触摸驱动程序报告方向时所用的测量类型
+#定义：touch.orientation.calibration = none | interpolated | vector | default
+touch.orientation.calibration=none
+#定义：touch.distance.calibration = none | scaled | default
+#指定触摸驱动程序报告距离时所用的测量类型。
+touch.distance.calibration=none
+#指定校准中使用的恒定比例因子。
+#默认值为 1.0
+touch.distance.scale=0
+#未找到定义
+touch.coverage.calibration=box
+#定义：touch.gestureMode = pointer | spots | default
+#指定指控手势的表示模式。仅在触摸设备为指控类型时，该配置属性才具有相关性。
+touch.gestureMode=spots
+
